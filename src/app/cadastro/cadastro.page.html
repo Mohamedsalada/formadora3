@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Criar Conta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p>Email:</p>
+  <input #email type="email" style="width:100%;padding:.6rem">
+
+  <p style="margin-top:8px">Senha:</p>
+  <input #pass type="password" style="width:100%;padding:.6rem">
+
+  <p style="margin-top:8px">Confirmar senha:</p>
+  <input #confirm type="password" style="width:100%;padding:.6rem">
+
+  <ion-button expand="block" style="margin-top:12px"
+              (click)="register(email.value, pass.value, confirm.value)">
+    Cadastrar e Entrar
+  </ion-button>
+
+  @if (error) {
+    <ion-text color="danger"><p class="ion-padding-top">{{ error }}</p></ion-text>
+  }
+
+  <p style="margin-top:16px">
+    Já tem conta?
+    <a routerLink="/login">Entrar</a>
+  </p>
+</ion-content>

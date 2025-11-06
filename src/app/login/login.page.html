@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h3>Entrar por Email</h3>
+  <p>Email:</p>
+  <input #email type="email" value="" style="width:100%;padding:.6rem">
+  <p style="margin-top:8px">Senha:</p>
+  <input #pass type="password" value="" style="width:100%;padding:.6rem">
+  <ion-button expand="block" style="margin-top:12px" (click)="loginEmail(email.value, pass.value)">Entrar</ion-button>
+
+  <h3 style="margin-top:24px">ou</h3>
+  <ion-button expand="block" (click)="loginGoogle()">Entrar com Google</ion-button>
+
+  @if (error) {
+    <ion-text color="danger"><p class="ion-padding-top">{{ error }}</p></ion-text>
+  }
+
+  <p style="margin-top:16px">
+    Não tem conta?
+    <a routerLink="/register">Criar agora</a>
+  </p>
+</ion-content>
