@@ -7,7 +7,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'cadastro',
     pathMatch: 'full',
   },
   {
@@ -19,7 +19,9 @@ export const routes: Routes = [
     loadComponent: () => import('./cadastro/cadastro.page').then( m => m.CadastroPage)
   },
   {
-    path: 'dieta',
-    loadComponent: () => import('./dieta/dieta.page').then( m => m.DietaPage)
+    path: 'api',
+    loadComponent: () => import('./api/api.page').then( m => m.ApiPage)
   },
-];
+
+]
+
