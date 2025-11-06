@@ -22,6 +22,10 @@ export const routes: Routes = [
     path: 'api',
     loadComponent: () => import('./api/api.page').then( m => m.ApiPage)
   },
+  {
+    path: 'dieta',
+    loadComponent: () => import('./dieta/dieta.page').then( m => m.DietaPage)
+  },
 
 ]
 

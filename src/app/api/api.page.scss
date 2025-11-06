@@ -1,0 +1,151 @@
+html, body {
+    height: 100%;
+    overflow: hidden; 
+}
+
+
+app-root, :host {
+    display: block;
+    height: 100%;
+}
+
+
+
+:host {
+    display: block;
+    height: 100%;
+}
+
+ion-content {
+   
+    --background: #f8f8f8; 
+}
+
+.container-fundo {
+   
+   background: #f8f8f8;
+}
+
+.container {
+    
+    position: static;
+    left: auto;
+    margin: 0 auto;
+    
+    width: 90%; 
+    max-width: 430px;
+    border-radius: 30px 30px 0 0; 
+   
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+    text-align: left; 
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: -3px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+    z-index: 10;
+}   
+
+
+
+ion-searchbar {
+  
+    --border-radius: 10px;
+    --background: #f0f0f0;
+    margin-bottom: 15px; 
+    box-shadow: none; 
+}
+
+.filters-container {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    gap: 8px;
+}
+
+.filters-container ion-chip {
+    flex-shrink: 0; 
+    --background: #e0e0e0;
+    color: #333;
+    font-weight: 500;
+}
+
+
+
+.cardapio-item {
+   
+    display: flex;
+   
+    align-items: center;
+    
+    padding: 15px 0; 
+    border-bottom: 1px solid #eee; 
+}
+
+
+.cardapio-item ion-img {
+
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin-right: 15px;
+    
+    border-radius: 12px; 
+}
+
+
+.peso-container {
+
+    flex-grow: 1;
+  
+    position: static;
+    left: auto;
+    top: auto;
+    text-align: left; 
+}
+
+.peso-container h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 2px 0;
+}
+
+.peso-container h6 {
+    font-size: 13px;
+    color: #666;
+    margin: 1px 0;
+    
+    line-height: 1.2;
+}
+
+
+.add-to-cart-button {
+   
+    margin-left: auto; 
+   
+    position: static;
+    top: auto;
+    left: auto;
+    
+   
+    width: 30px; 
+    height: 30px; 
+    
+   
+    --background-activated: #e0e0e0;
+    --border-color: #ddd;
+    --border-width: 1px;
+    --color: #333; 
+    font-size: 1px;
+    
+    /* Remove a sombra extra se não for necessária */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    ion-icon {
+        font-size: 20px; 
+        color: #333; 
+    }
+}
