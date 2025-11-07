@@ -1,27 +1,41 @@
-#container {
+:host {
+  display: block;
+  background-color: #ffffff;
+  min-height: 100vh;
+  color: #000000; 
+}
+
+.header {
+  background-color: #007aff;
+  color: white;
+  padding: 16px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.container {
+  padding: 16px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.card {
+  background: #ffffff;
+  color: #000000;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-#container a {
-  text-decoration: none;
+.card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+:host {
+  display: block;
+  background-color: #ffffff;
+  min-height: 100vh;
+  color: #000000;
+  overflow-y: auto; 
 }

@@ -1,12 +1,27 @@
-<ion-content class="container-fundo">
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Busca Nutricional</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="container-fundo" [fullscreen]="true">
   <div class="container">
+
+    <ion-button 
+      expand="block" 
+      (click)="goToDieta()" 
+      color="success" 
+      style="margin: 20px 0;">
+      <ion-icon slot="start" name="restaurant-outline"></ion-icon>
+      Ir para a Minha Dieta
+    </ion-button>
     
     <ion-searchbar
       placeholder="Digite o nome do seu alimento..."
       [(ngModel)]="termoBusca"
-      (ionInput)="carregarAlimentos(termoBusca)">
+      (ionInput)="carregarAlimentos(termoBusca)"
+      mode="ios">
     </ion-searchbar>
-
     
     <div class="filters-container ion-margin-bottom">
       <ion-chip>Proteínas</ion-chip>
@@ -15,70 +30,84 @@
       <ion-chip>Vegetais</ion-chip>
     </div>
 
+    @if (termoBusca && alimentos.length > 0) {
+      <div class="lista-cardapio">
+        <ion-list-header>
+          <ion-label>Resultados da Busca</ion-label>
+        </ion-list-header>
+
+        @for (item of alimentos; track item.name) {
+          <div class="cardapio-item">
+            <ion-img src="assets/img/default-food.jpg"></ion-img>
+            <div class="peso-container">
+              <h3>{{ item.name }}</h3>
+              <h6>{{ item.protein_g }}g proteínas / {{ item.serving_size_g }}g</h6>
+              <h6>{{ item.calories }} calorias</h6>
+            </div>
+            <ion-button class="add-to-cart-button">
+              <ion-icon name="add"></ion-icon>
+            </ion-button>
+          </div>
+        }
+      </div>
+    }
     
-    <div *ngIf="termoBusca && alimentos.length > 0" class="lista-cardapio">
-      <div *ngFor="let item of alimentos" class="cardapio-item">
-        <ion-img src="assets/img/default-food.jpg"></ion-img>
-        <div class="peso-container">
-          <h3>{{ item.name }}</h3>
-          <h6>{{ item.protein_g }}g proteínas / {{ item.serving_size_g }}g</h6>
-          <h6>{{ item.calories }} calorias</h6>
+    @if (!termoBusca || termoBusca.trim() === '') {
+      <div class="lista-cardapio">
+        <ion-list-header>
+          <ion-label>Sugestões Populares</ion-label>
+        </ion-list-header>
+        
+        <div class="cardapio-item">
+          <ion-img src="assets/img/peito.jpeg"></ion-img>
+          <div class="peso-container">
+            <h3>Peito de Frango</h3>
+            <h6>23g proteínas / 100g</h6>
+            <h6>185 calorias</h6>
+          </div>
+          <ion-button class="add-to-cart-button">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
         </div>
-        <ion-button class="add-to-cart-button">
-          <ion-icon name="add"></ion-icon>
-        </ion-button>
-      </div>
-    </div>
+        
+        <div class="cardapio-item">
+          <ion-img src="assets/img/ovo.jpg"></ion-img>
+          <div class="peso-container">
+            <h3>Ovo</h3>
+            <h6>13g proteínas / 100g</h6>
+            <h6>155 calorias</h6>
+          </div>
+          <ion-button class="add-to-cart-button">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </div>
 
+        <div class="cardapio-item">
+          <ion-img src="assets/img/aveia.jpg"></ion-img>
+          <div class="peso-container">
+            <h3>Aveia</h3>
+            <h6>17g proteínas / 100g</h6>
+            <h6>389 calorias</h6>
+          </div>
+          <ion-button class="add-to-cart-button">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </div>
+
+        <div class="cardapio-item">
+          <ion-img src="assets/img/salmao.png"></ion-img>
+          <div class="peso-container">
+            <h3>Salmão</h3>
+            <h6>25g proteínas / 100g</h6>
+            <h6>208 calorias</h6>
+          </div>
+          <ion-button class="add-to-cart-button">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    }
     
-    <div *ngIf="!termoBusca || termoBusca.trim() === ''" class="lista-cardapio">
-      <div class="cardapio-item">
-        <ion-img src="assets/img/peito.jpeg"></ion-img>
-        <div class="peso-container">
-          <h3>Peito de Frango</h3>
-          <h6>23g proteínas / 100g</h6>
-          <h6>185 calorias</h6>
-        </div>
-        <ion-button class="add-to-cart-button">
-          <ion-icon name="add"></ion-icon>
-        </ion-button>
-      </div>
-
-      <div class="cardapio-item">
-        <ion-img src="assets/img/ovo.jpg"></ion-img>
-        <div class="peso-container">
-          <h3>Ovo</h3>
-          <h6>13g proteínas / 100g</h6>
-          <h6>155 calorias</h6>
-        </div>
-        <ion-button class="add-to-cart-button">
-          <ion-icon name="add"></ion-icon>
-        </ion-button>
-      </div>
-
-      <div class="cardapio-item">
-        <ion-img src="assets/img/aveia.jpg"></ion-img>
-        <div class="peso-container">
-          <h3>Aveia</h3>
-          <h6>17g proteínas / 100g</h6>
-          <h6>389 calorias</h6>
-        </div>
-        <ion-button class="add-to-cart-button">
-          <ion-icon name="add"></ion-icon>
-        </ion-button>
-      </div>
-
-      <div class="cardapio-item">
-        <ion-img src="assets/img/salmao.png"></ion-img>
-        <div class="peso-container">
-          <h3>Salmão</h3>
-          <h6>25g proteínas / 100g</h6>
-          <h6>208 calorias</h6>
-        </div>
-        <ion-button class="add-to-cart-button">
-          <ion-icon name="add"></ion-icon>
-        </ion-button>
-      </div>
-    </div>
   </div>
-</ion-content>
+  
+  </ion-content>

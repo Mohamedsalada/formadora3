@@ -1,20 +1,58 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Vita+ (Sobre)</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container ion-padding">
+    
+    <!-- Título usando uma div ou ion-text, dentro do ion-content -->
+    <div class="header">
+      <h2>SOBRE</h2>
+    </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <!-- BOTÃO FUNCIONAL: Chama goToApi() no TS -->
+    <ion-button 
+      expand="block" 
+      (click)="goToApi()" 
+      color="success" 
+      style="margin: 20px 0;">
+      <ion-icon slot="start" name="restaurant-outline"></ion-icon>
+      Ir para a Busca Nutricional (API)
+    </ion-button>
+
+   
+    <div class="card">
+      <h3>Conectividade (APIs)</h3>
+      <p>calorieNinjas</p>
+    </div>
+
+    <div class="card">
+      <h3>Recurso Nativo</h3>
+      <p>Câmera</p>
+    </div>
+
+    <!-- Demais Cards de Estudantes -->
+    <div class="card">
+      <h3>Estudantes</h3>
+      <p>João Pedro Dias de moraes</p>
+      <p><strong>Turma:</strong>mobile</p>
+      <p><strong>Turno:</strong> manhã</p>
+      <p><strong>Unidade:</strong> bangu</p>
+      <p><strong>Período:</strong> 4º</p>
+      <p><strong>Ano Letivo:</strong> 2025</p>
+    </div>
+    
+    <div class="card">
+      <h3>Estudantes</h3>
+      <p>Julio Cesar de Sousa Oliveira</p>
+      <p><strong>Turma:</strong> mobile </p>
+      <p><strong>Turno:</strong> manhã</p>
+      <p><strong>Unidade:</strong> Bangu</p>
+      <p><strong>Período:</strong> 4º</p>
+      <p><strong>Ano Letivo:</strong> 2025</p>
+    </div>
+    
   </div>
 </ion-content>

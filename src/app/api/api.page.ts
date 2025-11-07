@@ -3,16 +3,24 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { addIcons } from 'ionicons';
-import { add } from 'ionicons/icons';
+// Ícones usados no HTML
+import { add, restaurantOutline } from 'ionicons/icons'; 
+import { Router } from '@angular/router';
 
-// ✅ Apenas os componentes realmente usados no HTML
+
 import {
+  // === TODOS OS IMPORTS DE COMPONENTES IONIC USADOS NO TEMPLATE ===
+  IonHeader, 
+  IonToolbar, 
+  IonTitle,
+  IonLabel,
+  IonListHeader, 
   IonContent,
   IonSearchbar,
   IonChip,
   IonImg,
   IonButton,
-  IonIcon
+  IonIcon, 
 } from '@ionic/angular/standalone';
 
 import { NutricaoService, ItemAlimento } from '../services/nutricao';
@@ -24,13 +32,20 @@ import { NutricaoService, ItemAlimento } from '../services/nutricao';
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule,
+    FormsModule, 
+
+    // COMPONENTES IONIC USADOS NO TEMPLATE:
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonLabel,
     IonContent,
     IonSearchbar,
     IonChip,
     IonImg,
     IonButton,
-    IonIcon
+    IonIcon, 
+    IonListHeader,
   ],
 })
 export class ApiPage implements OnInit {
@@ -40,12 +55,24 @@ export class ApiPage implements OnInit {
   public errorMessage: string | null = null;
   public termoBusca: string = '';
 
-  constructor(private nutricaoService: NutricaoService) {
-    addIcons({ add });
+  constructor(
+    private nutricaoService: NutricaoService,
+    private router: Router // <<-- ESSENCIAL: Injeção do Router para navegação
+  ) {
+    // Adicionando os ícones usados
+    addIcons({ add, restaurantOutline }); 
   }
 
   ngOnInit() {
-    // Pode deixar vazio ou adicionar algo para iniciar
+    
+  }
+
+  /**
+   * FUNÇÃO PARA NAVEGAR PARA A DIETA.
+   * Chamada pelo botão (click)="goToDieta()"
+   */
+  goToDieta() {
+    this.router.navigate(['/dieta']); 
   }
 
   carregarAlimentos(termo?: string) {
